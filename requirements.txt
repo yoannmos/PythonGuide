@@ -1,0 +1,13 @@
+pylint
+black
+
+mkdocs
+mkdocs-material
+mkdocs-jupyter
+mkdocs-git-revision-date-localized-plugin
+
+babel
+matplotlib
+numpy
+scipy
+sympy

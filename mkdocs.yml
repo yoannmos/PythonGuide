@@ -1,0 +1,72 @@
+site_name: Python Guide
+
+repo_name: 'PythonGuide'
+repo_url: https://gitlab.com/ymosteiro/PythonGuide/
+
+nav:
+    - Overview : "index.md"
+    - "installation.md"
+    - Pep8: "memento_pep8.md"
+    - Library :
+        - Standard :
+            - "Library/Base/path.md"
+            - "Library/Base/json.ipynb"
+            - "Library/Base/logging.ipynb"
+            - "Library/Base/pickle.ipynb"
+            # - "Library/Base/shelve.ipynb" DON'T WORK
+            # - "Library/Base/sqlite.ipynb" DON'T WORK
+        - 3rd party :
+            - "Library/ThirdParty/babel.ipynb"        
+            - "Library/ThirdParty/numpy.ipynb"
+            - "Library/ThirdParty/matplotlib.ipynb"
+            - "Library/ThirdParty/scipy.ipynb"
+            - "Library/ThirdParty/sympy.ipynb"
+    - DevTool :
+        - "DevTool/git.md"
+    - "developement.md"
+    - About: "about.md"
+
+
+theme:
+    name: 'material'
+    palette:
+        primary: 'Teal'
+        accent: 'Deep Orange'
+    # logo:
+    #     icon: 'explore'
+    feature:
+        tabs: true
+
+markdown_extensions:
+    - admonition
+    - codehilite:
+        guess_lang: false
+    - toc:
+        permalink: true
+
+    # - pymdownx.arithmatex
+    # - pymdownx.betterem:
+    #     smart_enable: all
+    # - pymdownx.caret
+    # - pymdownx.critic
+    # - pymdownx.details
+    # - pymdownx.emoji:
+    #     emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    # - pymdownx.inlinehilite
+    # - pymdownx.magiclink
+    # - pymdownx.mark
+    # - pymdownx.smartsymbols
+    - pymdownx.superfences
+    # - pymdownx.tasklist:
+    #     custom_checkbox: true
+    # - pymdownx.tilde
+
+plugins:
+    - search
+    - mkdocs-jupyter:
+        execute: False
+    - git-revision-date-localized:
+        type: datetime
+
+# extra_css:
+#   - 'stylesheets/extra.css'
