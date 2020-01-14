@@ -1,0 +1,7 @@
+site_name: Python Guide
+nav:
+    - Home: index.md
+    - Standard Library: standard.md
+    - About: about.md
+    
+theme: readthedocs
