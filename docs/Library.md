@@ -1,8 +1,20 @@
-# os
+# Library
+
+Blalal
+
+## Standard lib
+
+Blalalala
+
+$$
+\frac{n!}{k!(n-k)!} = \binom{n}{k}
+$$
+
+### os
 
 For full documentation visit [mkdocs.org](https://mkdocs.org).
 
-# sys
+### sys
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
@@ -13,3 +25,19 @@ For full documentation visit [mkdocs.org](https://mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+### csv
+
+Blalalala
+
+### json
+
+Blalalala
+
+## Pypi lib
+
+Blalalala
+
+### Matplotlib
+
+Blala

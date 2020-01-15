@@ -9,6 +9,10 @@ For full documentation visit [mkdocs.org](https://mkdocs.org).
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
 
+## Ref
+
+<!-- ::: PythonGuide.ex_logging -->
+
 ## Project layout
 
     mkdocs.yml    # The configuration file.
