@@ -15,7 +15,6 @@ Or if you don't wan't to overide your requirements.txt
 pip uninstall -y -r <(pip freeze)
 ```
 
-
 ## Clone Directory
 
 Change directory where you want to clone the repository
