@@ -1,28 +1,22 @@
-# Dev
+# Developement Process
 
-## Developement Process
+## Clean your environement
 
+Uninstall all package
+
+```ps
 pip freeze > requirements.txt
-
-Now to remove one by one
-
-```cmd
-pip uninstall -r requirements.txt
+pip uninstall -r requirements.txt  -y
 ```
 
-If we want to remove all at once then
+Or if you don't wan't to overide your requirements.txt
 
-pip uninstall -r requirements.txt -y
-
-If you're working on an existing project that has a requirements.txt file and your environment has diverged, simply replace requirements.txt from the above examples with toberemoved.txt. Then, once you have gone through the steps above, you can use the requirements.txt to update your now clean environment.
-
-And For single command without creating any file (As joeb suggested).
-
+```ps
 pip uninstall -y -r <(pip freeze)
+```
 
-### Clone Directory
 
-### Clone Directory 2
+## Clone Directory
 
 Change directory where you want to clone the repository
 
@@ -106,7 +100,3 @@ Push the branch on github
 ```
 
 And create a Pull Request on **master** in GitHub
-
-# Developement Process 2
-
-Test

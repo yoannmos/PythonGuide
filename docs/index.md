@@ -1,21 +1,17 @@
-# Welcome to MkDocs
+# Welcome to Python Guide
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+Python Guide is a repository of tool and tips to help learning Python and Software Development with Python.
 
-## Commands
+This guide will never include all functionnality of Python but help to start with nice and "easy to learn" tools.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+<!-- ## Instalation
 
-## Ref
+## Librairy
 
-<!-- ::: PythonGuide.ex_logging -->
+## Developement tool
+
+## Tips
 
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## About -->
