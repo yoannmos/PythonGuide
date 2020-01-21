@@ -36,7 +36,7 @@
     
     
       
-        <title>Test - Python Guide</title>
+        <title>Memento pep8 - Python Guide</title>
       
     
     
@@ -85,10 +85,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#module-sample" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -111,7 +107,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Test
+                Memento pep8
               
             </span>
           
@@ -421,153 +417,29 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classes" class="md-nav__link">
-    Classes
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sampleclass-sampleclass" class="md-nav__link">
-    SampleClass {: #SampleClass }
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#methods-sampleclass-methods" class="md-nav__link">
-    Methods {: #SampleClass-methods }
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    Functions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#func-func" class="md-nav__link">
-    func {: #func }
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/yoannmos/PythonGuide/edit/master/docs/test.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/yoannmos/PythonGuide/edit/master/docs/memento_pep8.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <!-- docs/sample-py.md -->
-
-<h1 id="module-sample">Module sample<a class="headerlink" href="#module-sample" title="Permanent link">&para;</a></h1>
-<p>This is a sample module.</p>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>variable</strong>{: #variable } (<code>int</code>):  Docstrings for module-level variables.</li>
-</ul>
-<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
-<h3 id="sampleclass-sampleclass">SampleClass {: #SampleClass }<a class="headerlink" href="#sampleclass-sampleclass" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">SampleClass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
-</pre></div>
-
-<p>Class docstrings.</p>
-<p><strong>Attributes</strong></p>
-<ul>
-<li><strong>baz</strong> (<code>str</code>): Docstrings for attributes.</li>
-</ul>
-<p><strong>Args</strong></p>
-<ul>
-<li><strong>b</strong> (<code>str</code>): Arguments for initializing.</li>
-</ul>
-<hr />
-<h4 id="methods-sampleclass-methods">Methods {: #SampleClass-methods }<a class="headerlink" href="#methods-sampleclass-methods" title="Permanent link">&para;</a></h4>
-<p><a href="#SampleClass.method"><strong>method</strong></a>{: #SampleClass.method }</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</pre></div>
-
-<p>Method docstrings.</p>
-<p>Cross reference available. <a href="./#func"><code>func</code></a></p>
-<p><strong>Args</strong></p>
-<ul>
-<li>
-<p><strong>bar</strong> (<code>int</code>)
-<strong>Returns</strong></p>
-</li>
-<li>
-<p><code>str</code></p>
-</li>
-</ul>
-<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
-<h3 id="func-func">func {: #func }<a class="headerlink" href="#func-func" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">foo</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</pre></div>
-
-<p>Docstrings for functions.</p>
-<p><strong>Args</strong></p>
-<ul>
-<li><strong>foo</strong> (<code>str</code>): First argument.</li>
-<li><strong>bar</strong> (<code>int</code>): Second argument.</li>
-</ul>
-<p><strong>Returns</strong></p>
-<ul>
-<li><code>str</code>: Type of return value.</li>
-</ul>
+                  <h1>Memento pep8</h1>
+                
+                <p>classes : CorrectClassName
+exceptions : IncorrectClassNameError (suffixe "Error" !)
+fonctions : get_correct_number()
+méthodes : get_correct_number(self)
+arguments des méthodes et fonctions : get_correct_number(random=False)
+variables : number = my_object.get_correct_number()
+constantes : ANSWER_TO_LIFE_UNIVERSE = 42</p>
+<p>Public / privé
+__my_private_variable ==&gt; "privé"
+_not_so_private ==&gt; "protégé"
+Évidemment, en Python...
+rien n'est réellement privé
+ce ne sont "que" des conventions</p>
                 
                   
                 
