@@ -1,0 +1,8 @@
+############
+### INFO ###
+############
+
+Traducteur Date et Temps
+
+Date and Time Field : 
+http://babel.pocoo.org/en/latest/dates.html
