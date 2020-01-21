@@ -8,6 +8,9 @@ nav:
     - 'installation.md'
     - Library :
         - "Library/path.md"
+        - "Library/plot.md"
+    - DevTool :
+        - "DevTool/git.md"
     - developement.md
     - Tips: not_imp.md
     - About: about.md
