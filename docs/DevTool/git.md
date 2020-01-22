@@ -11,4 +11,29 @@ If you get [unable to start ssh-agent service, error :1058](https://stackoverflo
 ```ps
 Start-SshAgent
 ```
+
 [Tuto](https://haacked.com/archive/2011/12/19/get-git-for-windows.aspx/)
+
+## Rebase
+
+If you want to rebase on the last 5 commit 
+
+```ps
+git rebase HEAD~5
+```
+
+Then use the proposed command for each commit
+
+## Force push origin
+
+```ps
+git push origin *branch* -f
+```
+
+## Undo commit
+
+```ps
+git reset --soft HEAD~1
+
+git reset --hard HEAD~1
+```
