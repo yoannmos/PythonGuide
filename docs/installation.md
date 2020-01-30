@@ -251,6 +251,16 @@ This list is just a basic list, you will find much more information Library.
 }
 ```
 
+### Recomended packages
+
+* Python
+* Python Test Explorer (inc. Test Explorer UI)
+* One Dark Pro
+* vscode-icons
+* Markdown All in One
+* markdownlint
+* Git Graph
+
 !!!info
     Corey Shaffer as made a really [good tutorial](https://youtu.be/-nh9rCzPJ20) on youtube. Watch it if you need more info.
 

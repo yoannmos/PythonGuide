@@ -14,6 +14,17 @@ Start-SshAgent
 
 [Tuto](https://haacked.com/archive/2011/12/19/get-git-for-windows.aspx/)
 
+## Delete local and remote
+
+```ps
+# Local
+git branch -d *branch*
+
+# Remote
+git push origin -d *branch*
+```
+
+
 ## Rebase
 
 If you want to rebase on the last 5 commit 
