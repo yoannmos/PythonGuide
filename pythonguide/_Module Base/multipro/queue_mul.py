@@ -1,110 +1,107 @@
 import time
+import logging
 from datetime import datetime
 from multiprocessing import Process, Queue
 import queue
 
-
-class MyProcess(Process):
-    def __init__(self, toExecute):
-        # Call Mother Class Constructor
-        Process.__init__(self)
-        # Create shared Event for all process (__init__ is called in the main process)
-        self.exit = Event()
-        # Set method to execute
-        self.toExecute = toExecute
-
-    def run(self):
-        # Children process (in same process group as main process) will
-        # receive Ctrl-C signal, this is not our logical exit procedure
-        # (we use shared events tested in processing loops, and proper
-        # exit).
-        signal.signal(signal.SIGINT, signal.SIG_IGN)
-        while not self.exit.is_set():
-            self.toExecute()
-        print("Process exited")
+# Logging
+FORMAT = "[%(levelname)s]  %(message)s"
+logging.basicConfig(level=logging.INFO, format=FORMAT)
 
 
-def pro0(conn=False):
-    list_x = []
-    # for i in range(10):
+def pro1(q=None, qperiod=0):
+    logging.info("pro1 : Program Start")
+    tq = time.time()
     i = 0
     while True:
         try:
             i += 1
-            x = time.time()
-            list_x.append(x)
-            if conn:
-                conn.put(["mul0", x, i])
-            time.sleep(0.5)
+            # --Do Stuff--
+            time.sleep(0.2)
+            # ------------
+            t1 = time.time()
+            tfreq = t1 - tq
+            if q and tfreq >= qperiod:
+                tq = time.time()
+                q.put(["pro1", round(t1, 3), " -> ", i])
         except ValueError:
-            print("pr0 : ValueError")
+            logging.error("pro1 : ValueError")
             break
         except KeyboardInterrupt:
-            print("pr0 : KeyboardInterrupt")
+            logging.warning("pro1 : KeyboardInterrupt")
             break
         except Exception as e:
-            print(f"pr0 : {e}")
+            logging.error(f"pro1 : {e}")
     return
 
 
-def pro1(conn=False):
-    list_x = []
-    for i in range(10):
+def pro2(in_list, in_period, q=None, qperiod=0):
+    logging.info("pro2 : Program Start")
+    tq = time.time()
+    time.sleep(5)
+    for i in in_list:
         try:
-            x = time.time()
-            list_x.append(x)
-            if conn:
-                conn.put(["mul1", x, i])
-            time.sleep(1)
+            time.sleep(in_period)
+            t1 = time.time()
+            tfreq = t1 - tq
+            if q and tfreq >= qperiod:
+                tq = time.time()
+                q.put(["pro2", round(t1, 3), i])
         except ValueError:
-            print("pr0 : ValueError")
+            logging.error("pro2 : ValueError")
             break
         except KeyboardInterrupt:
-            print("pr0 : KeyboardInterrupt")
+            logging.warning("pro2 : KeyboardInterrupt")
             break
         except Exception as e:
-            print(f"pr0 : {e}")
+            logging.error(f"pro2 : {e}")
+    logging.info("pro2 : Closing connection")
     return
 
 
 if __name__ == "__main__":
+    # ------------INPUT-------------
+    in_period = 2  # [s]
+    in_list = [p for p in range(0, 10, in_period)]
+    # -----------OUTPUT-------------
+    pr1_period = 1  # [s]
+    pr2_period = 2  # [s]
+    if pr2_period:
+        assert in_period <= pr2_period and pr2_period % in_period == 0
+    # ----------PROCESS-------------
+    TIMEOUT = 40  # [s]
     q = Queue()
-    p0 = Process(target=pro0, args=(q,))
-    p1 = Process(target=pro1, args=(q,))
-    p0.start()
+    p1 = Process(target=pro1, args=(q, pr1_period,))
+    p2 = Process(target=pro2, args=(in_list, in_period, q, pr2_period,))
     p1.start()
+    p2.start()
+    logging.info("main : Program Start")
     ts = time.time()
     dt = 0
-    while dt < 12:
+    # ----------MAINLOOP------------
+    while p1.is_alive() and p2.is_alive():
         ta = time.time()
         dt = ta - ts
         try:
             qcontent = q.get(0)
-            print(qcontent)
+            logging.info(f"{qcontent}")
+            if dt > TIMEOUT:
+                logging.warning("main : Timeout")
+                break
 
         except queue.Empty:
             qcontent = None
-            # print("Empty")
+            logging.debug("main : Queue is Empty")
 
         except queue.Full:
-            print("fuuuuullll")
+            logging.warning("main :Queue is full")
 
         except KeyboardInterrupt:
-            p0.terminate()
-            p1.terminate()
-            print("Program stop Manually")
+            logging.warning("main : KeyboardInterrupt")
             break
-    p0.terminate()
+
     p1.terminate()
-    print("Program End")
-    # if tc0[1] and tc1[1]:
-    #     dtime = round(abs(tc0[1] - tc1[1]), 3)
-    #     print(f"{datetime.now()} : {tc0[2]} {tc1[2]} {dtime}")
-
-    # else:
-    # dtime = None
-
-    # time.sleep(0.01)
-    # p0.join()
-    # p1.join()
-
+    p2.terminate()
+    logging.info("main : Closing connection")
+    tf = time.time()
+    logging.info(f"main : Program done in : {round(tf-ts, 2)} [s]")
