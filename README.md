@@ -1,3 +1,3 @@
 # Python Guide
 
-[Web Link](https://ymosteiro.gitlab.io/PythonGuide)
+[Web Link](https://yoannmos.github.io/PythonGuide/)
