@@ -3,12 +3,14 @@
 
 Majors tools, *"Python included"*, to deal with path are `pathlib` and `os` module.
 
-|Module|Documentation|
-|:-----|:-------|
-|pathlib|[pathlib documentation](https://docs.python.org/3.7/library/pathlib.html) -  [PEP 428](https://www.python.org/dev/peps/pep-0428/)|
-|os|[os.path documentation](https://docs.python.org/3.7/library/os.path.html)||
+| Module  | Documentation                                                                                                                     |
+| :------ | :-------------------------------------------------------------------------------------------------------------------------------- |
+| pathlib | [pathlib documentation](https://docs.python.org/3.7/library/pathlib.html) -  [PEP 428](https://www.python.org/dev/peps/pep-0428/) |
+| os      | [os.path documentation](https://docs.python.org/3.7/library/os.path.html)                                                         |  |
 
-```python tab="pathlib.Path"
+=== "pathlib"
+
+    ```python
     >>> from pathlib import Path
 
     # Relative Path
@@ -43,9 +45,11 @@ Majors tools, *"Python included"*, to deal with path are `pathlib` and `os` modu
     >>> p.drive
     'C:'
 
-```
+    ```
 
-```python tab="os"
+=== "os"
+<!--  -->
+    ```python
     >>>import os
 
     # Relative Path
@@ -67,27 +71,29 @@ Majors tools, *"Python included"*, to deal with path are `pathlib` and `os` modu
 
     >>> os.path.split(p)
     ('C:\\Users\\*Username*\\_PythonGuide', 'LICENCE.txt')
-```
-
-```python
-
-```
+    ```
 
 To get the current working directory
 
-```python tab="pathlib.Path"
+=== "pathlib"
+
+    ```python
     >>> Path.cwd()
     WindowsPath('C:/Users/*Username*/PythonWorkspace/Project/_PythonGuide')
-```
+    ```
 
-```python tab="os"
+=== "os"
+
+    ```python
     >>> os.getcwd()
     'C:\\Users\\*Username*\\PythonWorkspace\\Project\\_PythonGuide'
-```
+    ```
 
 Or get the parent directory
 
-```python tab="pathlib.Path"
+=== "pathlib"
+
+    ```python
     >>> p = Path.cwd()
 
     >>> p
@@ -110,9 +116,11 @@ Or get the parent directory
 
     >>> Path.cwd().parents[4]
     WindowsPath('C:/')
-```
+    ```
 
-```python tab="os"
+=== "os"
+
+    ```python
     >>> os.path.abspath('.')
     'C:\\Users\\*Username*\\PythonWorkspace\\Project\\_PythonGuide'
 
@@ -130,42 +138,41 @@ Or get the parent directory
 
     >>> os.path.abspath('..\..\..\..\..')
     'C:\\'
-```
+    ```
 
 To change your working directory
 
 ```python
-    os.chdir('A:/New/Path')
+os.chdir('A:/New/Path')
 ```
 
 To get the full path to the directory where your Python file is contained in:
 
 ```python
-    # __file__ is a constant, representing the .py file executed
-    file_path = os.path.realpath(__file__)
-    dir_path = os.path.dirname(os.path.realpath(__file__))
+# __file__ is a constant, representing the .py file executed
+file_path = os.path.realpath(__file__)
+dir_path = os.path.dirname(os.path.realpath(__file__))
 ```
 
 To concatenate path
 
 ```python
-    >>> Path.cwd() / Path('my/absolute/path')
-    WindowsPath('C:/Users/*Username*/AppData/Local/Programs/Python/Python37/my/absolute/path')
+>>> Path.cwd() / Path('my/absolute/path')
+WindowsPath('C:/Users/*Username*/AppData/Local/Programs/Python/Python37/my/absolute/path')
 
-    # or
+# or
 
-    os.join(os.getcwd(), 'my/relative/path')
-
+os.join(os.getcwd(), 'my/relative/path')
 ```
 
 (Note that the incantation above won't work if you've already used os.chdir() to change your current working directory, since the value of the __file__ constant is relative to the current working directory and is not changed by an os.chdir() call.)
 
 ```python
-    >>> Path.home()
-    WindowsPath('C:/Users/*Username*')
+>>> Path.home()
+WindowsPath('C:/Users/*Username*')
 ```
 
 ```python
-    Path(r'C:\Users\*Username*\spam').mkdir() # Create the spam folder
-    os.makedirs().
+Path(r'C:\Users\*Username*\spam').mkdir() # Create the spam folder
+os.makedirs().
 ```
