@@ -30,10 +30,19 @@ nav:
 theme:
     name: 'material'
     palette:
-        primary: 'Teal'
-        accent: 'Deep Orange'
-    # logo:
-    #     icon: 'explore'
+    palette:
+        - scheme: default
+          primary: 'Teal'
+          accent: 'Deep Orange'
+          toggle:
+              icon: material/toggle-switch-off-outline
+              name: Switch to dark mode
+        - scheme: slate
+          primary: 'Deep Purple'
+          accent: red
+          toggle:
+              icon: material/toggle-switch
+              name: Switch to light mode
     feature:
         tabs: true
 
