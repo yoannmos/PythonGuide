@@ -1,4 +1,10 @@
-# Installation
+# Installation 
+
+!!! Reminder
+    :fire: NEW VERSION ! :champagne:
+    
+    Old version is still [HERE](installation_old.md)
+
 
 A walkthrough installation and setup of Python 3.X.X environment on Windows 10.
 Those step use Windows PowerShell, This will help familiarize you with the command prompt.
@@ -40,7 +46,6 @@ C:\Users\*Username*>
 Create a `PythonWorkspace` folder with `mkdir` command.
 and add inside few folders :
     - `Download`
-    - `Environment`
     - `Project`
     - `Settings`
 
@@ -51,8 +56,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 C:\Users\*Username*>mkdir PythonWorkspace
 C:\Users\*Username*> cd PythonWorkspace
 C:\Users\*Username*\PythonWorkspace> mkdir Download
-...
-C:\Users\*Username*\PythonWorkspace> mkdir Environment
 ...
 C:\Users\*Username*\PythonWorkspace> mkdir Project
 ...
@@ -75,10 +78,9 @@ C:\Users\*Username*\PythonWorkspace> ls
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
-d-----       01.01.2020     08:00                Download
-d-----       01.01.2020     08:00                Environment
-d-----       01.01.2020     08:00                Project
-d-----       01.01.2020     08:00                Settings
+d-----       01.01.2021     08:00                Download
+d-----       01.01.2021     08:00                Project
+d-----       01.01.2021     08:00                Settings
 ```
 
 !!! tip
@@ -91,15 +93,74 @@ If you need to delete a file or a folder you can use `del *FileName_or_FolderNam
 
 ## Python
 
-### 1. Install Python
+### 1. Pyenv
 
-* Go to <https://www.python.org/downloads/>
-* Download Python (*Prefer 32x version over 64x for general use*)
-* Run the installer
-* Click : Add Python 3.X to PATH
-* Install
+Install pyenv with pip
 
-### 2. Test your install
+- Powershell or Git Bash: `pip install pyenv-win --target $HOME\\.pyenv`
+
+- cmd.exe: `pip install pyenv-win --target %USERPROFILE%\.pyenv`
+
+Install python 3.8.10 with pyenv `pyenv install 3.8.10`
+
+You can find another version with `pyenv install --list`
+
+Do not use a `a` or `b` version until you know what you do.
+
+Take the latest stable version in the following list it will be `3.9.6`
+
+```
+...
+3.9.0a3
+3.9.0a4-win32
+3.9.0a4
+3.9.0a5-win32
+3.9.0a5
+3.9.0a6-win32
+3.9.0a6
+...
+3.9.2
+3.9.3-win32
+3.9.3
+3.9.4-win32
+3.9.4
+3.9.5-win32
+3.9.5
+3.9.6-win32
+3.9.6
+...
+3.10.0b2-win32
+3.10.0b2
+3.10.0b3-win32
+3.10.0b3
+3.10.0b4-win32
+3.10.0b4
+```
+
+### 2. Poetry
+
+#### Install
+
+Powershell
+
+```ps
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+```
+
+osx / linux / bashonwindows
+
+``` bash
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+```
+
+#### Set .venv folder
+
+```ps
+poetry config virtualenvs.in-project true
+```
+
+
+### 3. Test your install
 
 * Open cmd and tap `python`
 
@@ -108,12 +169,12 @@ Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 C:\Users\*Username*>python
-Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 14 2019, 23:09:19) [MSC v.1916 32 bit (Intel)] on win32
+Python 3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-### 3. Setup your virtual environement
+### 4. Setup your virtual environement
 
 Move to your Environment folder with cd command
 
