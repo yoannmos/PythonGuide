@@ -95,19 +95,19 @@ If you need to delete a file or a folder you can use `del *FileName_or_FolderNam
 
 ### 1. Pyenv
 
-Install pyenv with pip
+Install pyenv
 
-- Powershell or Git Bash: `pip install pyenv-win --target $HOME\\.pyenv`
+For windows follow the updated documentation directly on [pyenv-win](https://github.com/pyenv-win/pyenv-win)
 
-- cmd.exe: `pip install pyenv-win --target %USERPROFILE%\.pyenv`
+If you get a Policy Error, try in administrator or set your policy in Powershell as administrator with `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
-Install python 3.8.10 with pyenv `pyenv install 3.8.10`
+Once you have pyenv install you can install python 3.9.6 with pyenv `pyenv install 3.9.6`
 
 You can find another version with `pyenv install --list`
 
 Do not use a `a` or `b` version until you know what you do.
 
-Take the latest stable version in the following list it will be `3.9.6`
+Take the latest stable version, in the following list it will be `3.9.6`
 
 ```
 ...
@@ -136,6 +136,7 @@ Take the latest stable version in the following list it will be `3.9.6`
 3.10.0b4-win32
 3.10.0b4
 ```
+Finaly set your global version of python with `pyenv global 3.9.6`
 
 ### 2. Poetry
 
@@ -147,11 +148,16 @@ Powershell
 (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
 ```
 
-osx / linux / bashonwindows
+If you get an error `Invoke-WebRequest : La demande a été interrompue : Impossible de créer un canal sécurisé ssl/TLS.`
 
-``` bash
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-```
+Just change your protocol with `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+
+Normally poetry is added to path, restart your terminal and type `poetry`.
+
+If it's not working, simply add poetry to PATH :
+
+ `[System.Environment]::SetEnvironmentVariable('path', $env:USERPROFILE + "\.poetry\bin")`
+
 
 #### Set .venv folder
 
@@ -168,83 +174,74 @@ poetry config virtualenvs.in-project true
 Windows PowerShell
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-C:\Users\*Username*>python
-Python 3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)] on win32
+PS C:\Users\*Username*>PythonWorkspace python
+Python 3.9.6 (tags/v3.9.6:db3ff76, Jun 28 2021, 15:26:21) [MSC v.1929 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
->>>
+>>> quit()
+PS C:\Users\*Username*>PythonWorkspace
 ```
 
-### 4. Setup your virtual environement
+### 4. Setup a multi purpose project
 
-Move to your Environment folder with cd command
+Move to your Project folder with cd command
 
 ```ps
-C:\Users\*Username*>cd PythonWorkspace\Environment
-C:\Users\*Username*\PythonWorkspace\Environment
+C:\Users\*Username*>cd PythonWorkspace\Project
+C:\Users\*Username*\PythonWorkspace\Project
+```
+Make a new folder
+
+```
+mkdir Testing
+cd Testing
 ```
 
 Virtual environement permit to install package seperatly and never polute your Python install
 
-Then create a Base environement
+Then init Poetry 
 
 ```ps
-C:\Users\*Username*\PythonWorkspace\Environment>python -m venv Base
+C:\Users\*Username*\PythonWorkspace\Project\Testing> poetry init
 ```
+Respond to question accordingly don't feel obligated to add dependency now you will have possibility to add them later.
 
 Activate it
 
 ```ps
-C:\Users\*Username*\PythonWorkspace\Environment>Base\Scripts\activate
-```
-
-You should see
-
-```ps
-(Base) C:\Users\*Username*\PythonWorkspace\Environment>
+C:\Users\*Username*\PythonWorkspace\Project\Testing\.venv\Scripts\activate
 ```
 
 To deactivate your environemnet simply type "deactivate"
 
 ```ps
-(Base) C:\Users\*Username*\PythonWorkspace\Environment>deactivate
-C:\Users\*Username*\PythonWorkspace\Environment>
+(.venv) C:\Users\*Username*\PythonWorkspace\Project\Testing\> deactivate
+C:\Users\*Username*\PythonWorkspace\Project\Testing\
 ```
 
-Create a lab env following the same logic and activate it before next step
+You can also use `poetry run *whatever*` it's equivalent to have a .venv activated
+
 
 ### 4. Install packages
 
-!!!danger
-    Nerver install package on your base python
+!!! danger
+    Nerver install package on your base python always use a virtual environement
 
 * Install :
 
+ with `poetry add *packagename*` or `poetry add -D *pacakagename*` for dev dependencies.poetry 
 ```ps
-(lab) PS C:\Users\*Username*\PythonWorkspace> pip install #PACKAGENAME#
+(.venv) C:\Users\*Username*\PythonWorkspace\Project\Testing\> poetry add *packagename*
+```
+or for developement dependencies only
+
+```ps
+(.venv) C:\Users\*Username*\PythonWorkspace\Project\Testing\> poetry add -D *packagename*
 ```
 
 * Uninstall :
 
 ```ps
-(lab) PS C:\Users\*Username*\PythonWorkspace> pip uninstall #PACKAGENAME#
-```
-
-* Downgrade :
-
-```ps
-(lab) PS C:\Users\*Username*\PythonWorkspace> pip install #PACKAGENAME#==2.1 --upgrade
-```
-
-* List of installed lib :
-
-```ps
-(lab) PS C:\Users\*Username*\PythonWorkspace> pip freeze
-```
-
-* File of installed lib :
-
-```ps
-(lab) PS C:\Users\*Username*\PythonWorkspace> pip freeze > python_lib_list.txt
+(lab) PS C:\Users\*Username*\PythonWorkspace> poetry remove *packagename* # with -D for dev
 ```
 
 #### Package Commonly used
@@ -255,7 +252,7 @@ This list is just a basic list, you will find much more information Library.
 * Calcul symbolique : sympy
 * Traducteur : Babel
 * COM Win32 : pywin32
-* Additional GUI App : PyQt5 ou Pyside2
+* Additional GUI App : Pyside6
 * AutoGUI : pyautogui
 * Image : pillow
 * Xlsx : openpyxl (xlrd deprecated)
@@ -266,7 +263,7 @@ This list is just a basic list, you will find much more information Library.
 * Linter : Pylint
 * Formatter : black
 * Notebook IDE : ipython jupyter jupyterlab
-* Standard IDE : VSC
+* And a lot more !!!
 
 ## VSCode
 
@@ -275,7 +272,6 @@ This list is just a basic list, you will find much more information Library.
 * Go to <https://code.visualstudio.com/download>
 * Download Vscode
 * Run the installer
-* **ADD INFO HERE**
 * In Extension, install Python Extension.
 
 ### 2. Setup your Environement
@@ -293,6 +289,8 @@ This list is just a basic list, you will find much more information Library.
     "workbench.settings.openDefaultSettings": true
 }
 ```
+
+TODO : Update following JSON
 
 ```json
 {
@@ -315,12 +313,11 @@ This list is just a basic list, you will find much more information Library.
 ### Recomended packages
 
 * Python
-* Python Test Explorer (inc. Test Explorer UI)
 * One Dark Pro
 * vscode-icons
 * Markdown All in One
-* markdownlint
 * Git Graph
+* PlantUML
 
 !!!info
     Corey Shaffer as made a really [good tutorial](https://youtu.be/-nh9rCzPJ20) on youtube. Watch it if you need more info.
