@@ -1,7 +1,7 @@
 site_name: Python Guide
 
 repo_name: 'PythonGuide'
-repo_url: https://gitlab.com/ymosteiro/PythonGuide/
+repo_url: https://github.com/yoannmos/PythonGuide/
 
 nav:
     - Overview : "index.md"
