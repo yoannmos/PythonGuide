@@ -145,7 +145,7 @@ Finaly set your global version of python with `pyenv global 3.9.6`
 Powershell
 
 ```ps
-(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py -UseBasicParsing).Content | python -
 ```
 
 If you get an error `Invoke-WebRequest : La demande a été interrompue : Impossible de créer un canal sécurisé ssl/TLS.`
